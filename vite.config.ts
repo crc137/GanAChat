@@ -78,7 +78,8 @@ export default defineConfig(({ mode }): UserConfig => {
   } = env;
   const appEnv = env.APP_ENV || (mode === 'development' ? 'development' : 'production');
   const defaultAppTitle = `Telegram${appEnv !== 'production' ? ' Beta' : ''}`;
-  const baseUrl = env.BASE_URL || PRODUCTION_URL;
+//  const baseUrl = env.BASE_URL || PRODUCTION_URL;
+  const baseUrl = /^https?:\/\//.test(env.BASE_URL || '') ? env.BASE_URL : PRODUCTION_URL;
   const appTitle = env.APP_TITLE || defaultAppTitle;
   const isProductionApp = appEnv === 'production';
   const appleIcon = isProductionApp ? 'apple-touch-icon' : 'apple-touch-icon-dev';
