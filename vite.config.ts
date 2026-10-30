@@ -206,7 +206,7 @@ export default defineConfig(({ mode }): UserConfig => {
     },
     server: {
       host: '0.0.0.0',
-      port: 1234,
+      port: 3000,
       strictPort: true,
       headers: {
         'Content-Security-Policy': csp,
@@ -219,6 +219,7 @@ export default defineConfig(({ mode }): UserConfig => {
       watch: {
         ignored: DEV_SERVER_WATCH_IGNORES,
       },
+      allowedHosts: true
     },
     build: {
       sourcemap: true,
